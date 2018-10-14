@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package rmpb;
+
+option go_package = "github.com/asahasrabuddhe/rmpb";
+
+message StartRequest {
+    int32 interval = 1;
+}
+
+message StartResponse {
+    bool status = 1;
+}
+
+message StopRequest {
+    bool restart = 1;
+}
+
+message StopResponse {
+    bool status = 1;
+}
+
+service ReleaseMonitorService {
+    rpc Start (StartRequest) returns (StartResponse);
+    rpc Stop (StopRequest) returns (StopResponse);
+}
